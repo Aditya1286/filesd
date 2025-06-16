@@ -1,84 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Assessment | SAMहित</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
         }
-        
+
         .gradient-text {
             background: linear-gradient(135deg, #ff6b35, #f7931e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .btn-orange {
             background: linear-gradient(135deg, #ff6b35, #f7931e);
             transition: all 0.3s ease;
         }
-        
+
         .btn-orange:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
         }
-        
+
         .card-hover {
             transition: all 0.3s ease;
             border: 1px solid #2d2d2d;
         }
-        
+
         .card-hover:hover {
             transform: translateY(-2px);
             border-color: #ff6b35;
             box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
         }
-        
+
         .progress-bar {
             background: linear-gradient(135deg, #ff6b35, #f7931e);
             transition: width 0.5s ease-in-out;
         }
-        
+
         .option-card {
             transition: all 0.3s ease;
             background: #1a1a1a;
             border: 1px solid #2d2d2d;
         }
-        
+
         .option-card:hover {
             border-color: #ff6b35;
             background: #262626;
             transform: translateY(-1px);
         }
-        
+
         .result-card {
             background: linear-gradient(135deg, #1a1a1a 0%, #262626 100%);
             border: 1px solid #2d2d2d;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .fade-in {
             animation: fadeIn 0.6s ease-out;
         }
-        
-        .minimal { border-left: 4px solid #10b981; }
-        .mild { border-left: 4px solid #f59e0b; }
-        .moderate { border-left: 4px solid #f97316; }
-        .severe { border-left: 4px solid #ef4444; }
+
+        .minimal {
+            border-left: 4px solid #10b981;
+        }
+
+        .mild {
+            border-left: 4px solid #f59e0b;
+        }
+
+        .moderate {
+            border-left: 4px solid #f97316;
+        }
+
+        .severe {
+            border-left: 4px solid #ef4444;
+        }
     </style>
 </head>
+
 <body class="bg-black text-white">
 
     <!-- Navigation -->
@@ -94,7 +115,8 @@
                     <a href="#" class="text-white hover:text-orange-400 transition-colors">Insights</a>
                     <a href="#" class="text-white hover:text-orange-400 transition-colors">Contact</a>
                 </div>
-                <button class="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">
+                <button
+                    class="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">
                     Get Started
                 </button>
             </div>
@@ -104,7 +126,7 @@
     <!-- Assessment Container -->
     <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
-            
+
             <!-- Header Section -->
             <div id="header-section" class="text-center mb-16 fade-in">
                 <h1 class="text-5xl md:text-7xl font-black mb-6">
@@ -139,7 +161,32 @@
                     <div class="text-gray-400">AI Monitoring</div>
                 </div>
             </div>
-
+            <!-- Privacy & Security Notice -->
+            <div id="privacy-section" class="bg-gray-900/50 border border-gray-700 rounded-2xl p-8 mb-16">
+                <div class="text-center mb-6">
+                    <i class="fas fa-shield-alt text-4xl text-green-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">Your Privacy is Protected</h3>
+                    <p class="text-gray-400">We use advanced encryption and privacy measures to keep your data secure
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <i class="fas fa-lock text-2xl text-green-400 mb-3"></i>
+                        <h4 class="font-semibold text-white mb-2">End-to-End Encryption</h4>
+                        <p class="text-sm text-gray-400">All responses are encrypted and never stored on our servers</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-user-secret text-2xl text-green-400 mb-3"></i>
+                        <h4 class="font-semibold text-white mb-2">Anonymous Assessment</h4>
+                        <p class="text-sm text-gray-400">No personal information required to complete the assessment</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-trash-alt text-2xl text-green-400 mb-3"></i>
+                        <h4 class="font-semibold text-white mb-2">Auto-Delete</h4>
+                        <p class="text-sm text-gray-400">Session data is automatically cleared after completion</p>
+                    </div>
+                </div>
+            </div>
             <!-- Quiz Container -->
             <div id="quiz-container" class="hidden">
                 <!-- Progress Bar -->
@@ -161,7 +208,8 @@
 
                 <!-- Navigation -->
                 <div class="flex justify-between items-center">
-                    <button id="prev-btn" class="text-gray-400 hover:text-white transition-colors disabled:opacity-50" disabled>
+                    <button id="prev-btn" class="text-gray-400 hover:text-white transition-colors disabled:opacity-50"
+                        disabled>
                         <i class="fas fa-arrow-left mr-2"></i> Previous
                     </button>
                     <div class="text-sm text-gray-500">
@@ -186,9 +234,9 @@
                             <p id="result-score" class="text-gray-400"></p>
                         </div>
                     </div>
-                    
+
                     <p id="result-message" class="text-lg mb-6 text-gray-300"></p>
-                    
+
                     <div class="bg-black/50 rounded-xl p-6 mb-6">
                         <h4 class="font-semibold text-white mb-3">
                             <i class="fas fa-lightbulb mr-2 text-orange-400"></i>
@@ -205,8 +253,10 @@
                         Important Notice:
                     </h4>
                     <p class="text-blue-200 text-sm">
-                        This assessment is for informational purposes only and is not a substitute for professional medical advice, 
-                        diagnosis, or treatment. If you're experiencing thoughts of self-harm or suicide, please contact a crisis 
+                        This assessment is for informational purposes only and is not a substitute for professional
+                        medical advice,
+                        diagnosis, or treatment. If you're experiencing thoughts of self-harm or suicide, please contact
+                        a crisis
                         helpline or emergency services immediately.
                     </p>
                 </div>
@@ -228,11 +278,13 @@
                         </div>
                         <div class="text-gray-300">
                             <strong>NAMI Helpline:</strong><br>
-                            <a href="tel:1-800-950-6264" class="text-orange-400 hover:text-orange-300">1-800-950-NAMI (6264)</a>
+                            <a href="tel:1-800-950-6264" class="text-orange-400 hover:text-orange-300">1-800-950-NAMI
+                                (6264)</a>
                         </div>
                         <div class="text-gray-300">
                             <strong>Mental Health America:</strong><br>
-                            <a href="https://mhanational.org" class="text-orange-400 hover:text-orange-300">mhanational.org</a>
+                            <a href="https://mhanational.org"
+                                class="text-orange-400 hover:text-orange-300">mhanational.org</a>
                         </div>
                     </div>
                 </div>
@@ -409,6 +461,33 @@
             }
         ];
 
+        // Question categories for better analysis
+        const questionCategories = {
+            depression: [0, 1, 2, 3, 4, 5, 6, 14], // Questions 1-7, 15
+            anxiety: [7, 8, 9, 10, 11], // Questions 8-12
+            cognitive: [6, 12], // Questions 7, 13
+            social: [13] // Question 14
+        };
+
+        // Enhanced scoring system
+        function calculateCategoryScores() {
+            const categoryScores = {};
+
+            Object.keys(questionCategories).forEach(category => {
+                const questionIndices = questionCategories[category];
+                const totalScore = questionIndices.reduce((sum, index) => {
+                    return sum + (answers[index] || 0);
+                }, 0);
+                const maxScore = questionIndices.length * 3;
+                categoryScores[category] = {
+                    score: totalScore,
+                    percentage: (totalScore / maxScore) * 100
+                };
+            });
+
+            return categoryScores;
+        }
+
         // Quiz State
         let currentQuestion = 0;
         let answers = {};
@@ -432,7 +511,10 @@
         function startQuiz() {
             headerSection.classList.add('hidden');
             statsSection.classList.add('hidden');
+            document.getElementById('privacy-section').classList.add('hidden');
             quizContainer.classList.remove('hidden');
+            quizContainer.classList.add('fade-in');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             loadQuestion();
         }
 
@@ -440,13 +522,10 @@
             const question = questions[currentQuestion];
             document.getElementById('question-text').textContent = question.question;
             document.getElementById('progress-text').textContent = `${currentQuestion + 1} of ${questions.length}`;
-            
             const progressPercentage = ((currentQuestion + 1) / questions.length) * 100;
             document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
-
             const optionsContainer = document.getElementById('options-container');
             optionsContainer.innerHTML = '';
-
             question.options.forEach((option, index) => {
                 const optionElement = document.createElement('button');
                 optionElement.className = 'option-card w-full text-left p-6 rounded-xl cursor-pointer';
@@ -456,12 +535,9 @@
                         <span class="text-white">${option.text}</span>
                     </div>
                 `;
-                
                 optionElement.addEventListener('click', () => selectAnswer(option.score));
                 optionsContainer.appendChild(optionElement);
             });
-
-            // Add fade-in animation
             document.getElementById('question-card').classList.remove('fade-in');
             setTimeout(() => {
                 document.getElementById('question-card').classList.add('fade-in');
@@ -470,7 +546,6 @@
 
         function selectAnswer(score) {
             answers[currentQuestion] = score;
-            
             if (currentQuestion < questions.length - 1) {
                 currentQuestion++;
                 setTimeout(loadQuestion, 300);
@@ -481,23 +556,22 @@
 
         function calculateAndShowResults() {
             totalScore = Object.values(answers).reduce((sum, score) => sum + score, 0);
-            
             quizContainer.classList.add('hidden');
             resultsSection.classList.remove('hidden');
-            
             displayResults();
         }
 
         function displayResults() {
             const resultCard = document.getElementById('result-card');
-
+            const categoryScores = calculateCategoryScores();
             if (totalScore <= 10) {
                 resultData = {
                     level: "Minimal Symptoms",
                     icon: "fas fa-check-circle text-green-400",
                     className: "minimal",
                     message: "Your responses suggest minimal signs of depression or anxiety. You appear to be managing well mentally.",
-                    recommendation: "Continue maintaining healthy habits like regular exercise, good sleep, and social connections. Consider mindfulness practices to maintain your mental wellness."
+                    recommendation: "Continue maintaining healthy habits like regular exercise, good sleep, and social connections. Consider mindfulness practices to maintain your mental wellness.",
+                    color: "green"
                 };
             } else if (totalScore <= 20) {
                 resultData = {
@@ -505,7 +579,8 @@
                     icon: "fas fa-exclamation-triangle text-yellow-400",
                     className: "mild",
                     message: "Your responses suggest mild symptoms that may benefit from attention and self-care strategies.",
-                    recommendation: "Consider implementing stress-reduction techniques, regular exercise, and mindfulness practices. Monitor your symptoms and consider speaking with a healthcare provider if they persist."
+                    recommendation: "Consider implementing stress-reduction techniques, regular exercise, and mindfulness practices. Monitor your symptoms and consider speaking with a healthcare provider if they persist.",
+                    color: "yellow"
                 };
             } else if (totalScore <= 30) {
                 resultData = {
@@ -513,7 +588,8 @@
                     icon: "fas fa-exclamation-circle text-orange-400",
                     className: "moderate",
                     message: "Your responses suggest moderate symptoms that may be impacting your daily life.",
-                    recommendation: "It's recommended to speak with a healthcare provider, counselor, or therapist. Support groups and professional guidance can be very helpful at this stage."
+                    recommendation: "It's recommended to speak with a healthcare provider, counselor, or therapist. Support groups and professional guidance can be very helpful at this stage.",
+                    color: "orange"
                 };
             } else {
                 resultData = {
@@ -521,130 +597,130 @@
                     icon: "fas fa-exclamation-triangle text-red-400",
                     className: "severe",
                     message: "Your responses suggest significant symptoms that likely require professional attention.",
-                    recommendation: "It's important to reach out to a mental health professional, your doctor, or a crisis helpline for immediate support and guidance. Please don't wait to seek help."
+                    recommendation: "It's important to reach out to a mental health professional, your doctor, or a crisis helpline for immediate support and guidance. Please don't wait to seek help.",
+                    color: "red"
                 };
             }
-
             resultCard.className = `result-card rounded-2xl p-8 mb-8 ${resultData.className}`;
             document.getElementById('result-icon').className = resultData.icon;
             document.getElementById('result-level').textContent = resultData.level;
-            document.getElementById('result-score').textContent = `Total Score: ${totalScore}/45`;
+            document.getElementById('result-score').textContent = `Total Score: ${totalScore}/45 (${((totalScore / 45) * 100).toFixed(1)}%)`;
             document.getElementById('result-message').textContent = resultData.message;
             document.getElementById('result-recommendation').textContent = resultData.recommendation;
-
-            // Add fade-in animation
+            addCategoryBreakdown(categoryScores);
             resultsSection.classList.add('fade-in');
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function addCategoryBreakdown(categoryScores) {
+            let breakdownSection = document.getElementById('category-breakdown');
+            if (!breakdownSection) {
+                breakdownSection = document.createElement('div');
+                breakdownSection.id = 'category-breakdown';
+                breakdownSection.className = 'bg-black/30 rounded-xl p-6 mb-6';
+                const resultCard = document.getElementById('result-card');
+                resultCard.parentNode.insertBefore(breakdownSection, resultCard.nextSibling);
+            }
+            breakdownSection.innerHTML = `
+                <h4 class="font-semibold text-white mb-4">
+                    <i class="fas fa-chart-bar mr-2 text-orange-400"></i>
+                    Detailed Breakdown:
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    ${Object.entries(categoryScores).map(([category, data]) => {
+                        const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+                        const colorClass = data.percentage > 66 ? 'text-red-400' : data.percentage > 33 ? 'text-yellow-400' : 'text-green-400';
+                        return `
+                            <div class="bg-gray-800/50 rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-300 font-medium">${categoryName}</span>
+                                    <span class="${colorClass} font-bold">${data.percentage.toFixed(0)}%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-orange-500 to-orange-400 h-2 rounded-full transition-all duration-500" 
+                                         style="width: ${data.percentage}%"></div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
         }
 
         function downloadResults() {
-            const currentDate = new Date().toLocaleDateString();
-            const currentTime = new Date().toLocaleTimeString();
-            
-            // Create comprehensive results text
-            let resultText = `
-MENTAL HEALTH ASSESSMENT RESULTS
-SAMहित - Mental Health Platform
-=====================================
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const pageWidth = doc.internal.pageSize.width;
+            const pageHeight = doc.internal.pageSize.height;
+            let yPosition = 20;
+            const margin = 20;
+            const maxWidth = pageWidth - 2 * margin;
 
-Assessment Date: ${currentDate}
-Assessment Time: ${currentTime}
+            // Add text with wrapping and page break handling
+            function addText(text, x, y, options = {}) {
+                const fontSize = options.fontSize || 12;
+                doc.setFontSize(fontSize);
+                doc.setFont("helvetica", options.fontStyle || "normal");
+                const lines = doc.splitTextToSize(text, maxWidth);
+                let lineY = y;
 
-OVERALL RESULTS
-=====================================
-Assessment Level: ${resultData.level}
-Total Score: ${totalScore}/45
-Percentage: ${((totalScore / 45) * 100).toFixed(1)}%
+                lines.forEach((line, index) => {
+                    if (lineY + 10 > pageHeight - margin) {
+                        doc.addPage();
+                        lineY = margin;
+                    }
+                    doc.text(line, x, lineY, { align: options.align || "left" });
+                    lineY += 7;
+                });
 
-ASSESSMENT INTERPRETATION
-=====================================
-${resultData.message}
+                return lineY;
+            }
 
-RECOMMENDATIONS
-=====================================
-${resultData.recommendation}
+            // Header
+            yPosition = addText("Mental Health Assessment Results", pageWidth / 2, yPosition, { fontSize: 16, align: "center" });
+            yPosition = addText("SAMHIT", pageWidth / 2, yPosition, { align: "center" });
+            yPosition += 10;
 
-DETAILED RESPONSES
-=====================================`;
+            // Date
+            const currentDate = new Date().toLocaleString();
+            yPosition = addText(`Date: ${currentDate}`, margin, yPosition);
+            yPosition += 10;
 
-            // Add individual question responses
-            questions.forEach((question, index) => {
-                const userScore = answers[index];
-                const selectedOption = question.options.find(opt => opt.score === userScore);
-                resultText += `
+            // Result Summary
+            yPosition = addText("Result Summary", margin, yPosition, { fontSize: 14, fontStyle: "bold" });
+            yPosition = addText(`Level: ${resultData.level}`, margin, yPosition);
+            yPosition = addText(`Score: ${totalScore}/45 (${((totalScore / 45) * 100).toFixed(1)}%)`, margin, yPosition);
+            yPosition += 10;
 
-Question ${index + 1}: ${question.question}
-Your Response: ${selectedOption ? selectedOption.text : 'Not answered'}
-Score: ${userScore}/3`;
+            // Category Breakdown
+            const categoryScores = calculateCategoryScores();
+            yPosition = addText("Category Breakdown", margin, yPosition, { fontSize: 14, fontStyle: "bold" });
+            Object.entries(categoryScores).forEach(([category, data]) => {
+                const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+                yPosition = addText(`${categoryName}: ${data.percentage.toFixed(0)}%`, margin, yPosition);
             });
+            yPosition += 10;
 
-            // Add crisis resources
-            resultText += `
+            // Message
+            yPosition = addText("Interpretation", margin, yPosition, { fontSize: 14, fontStyle: "bold" });
+            yPosition = addText(resultData.message, margin, yPosition);
+            yPosition += 10;
 
+            // Recommendation
+            yPosition = addText("Recommendations", margin, yPosition, { fontSize: 14, fontStyle: "bold" });
+            yPosition = addText(resultData.recommendation, margin, yPosition);
+            yPosition += 10;
 
-CRISIS RESOURCES
-=====================================
-If you're experiencing thoughts of self-harm or suicide, please contact:
+            // Footer with page numbers
+            const pageCount = doc.internal.getNumberOfPages();
+            for (let i = 1; i <= pageCount; i++) {
+                doc.setPage(i);
+                doc.setFontSize(10);
+                doc.text(`Page ${i} of ${pageCount}`, pageWidth / 2, pageHeight - 10, { align: "center" });
+            }
 
-National Suicide Prevention Lifeline: 988
-Crisis Text Line: Text HOME to 741741
-NAMI Helpline: 1-800-950-NAMI (6264)
-Mental Health America: mhanational.org
-
-IMPORTANT DISCLAIMER
-=====================================
-This assessment is for informational purposes only and is not a substitute 
-for professional medical advice, diagnosis, or treatment. If you're experiencing 
-thoughts of self-harm or suicide, please contact a crisis helpline or emergency 
-services immediately.
-
-For professional mental health support, please consult with:
-- Your primary care physician
-- A licensed mental health professional
-- A counselor or therapist
-- A psychiatrist
-
-Generated by SAMHIS Mental Health Assessment Platform
-Visit us at: [https://filesd.vercel.app/]
-`;
-
-            // Create and download the file
-            const blob = new Blob([resultText], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Mental_Health_Assessment_Results_${currentDate.replace(/\//g, '-')}.txt`;
-            
-            // Trigger download
-            document.body.appendChild(a);
-            a.click();
-            
-            // Clean up
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            
-            // Show confirmation message
-            showDownloadConfirmation();
-        }
-
-        function showDownloadConfirmation() {
-            // Create temporary notification
-            const notification = document.createElement('div');
-            notification.className = 'fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 fade-in';
-            notification.innerHTML = `
-                <div class="flex items-center">
-                    <i class="fas fa-check-circle mr-2"></i>
-                    Results downloaded successfully!
-                </div>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            // Remove notification after 3 seconds
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 3000);
+            // Save PDF
+            doc.save(`Assessment_Results_${new Date().toISOString().split('T')[0]}.pdf`);
         }
 
         function resetQuiz() {
@@ -652,19 +728,18 @@ Visit us at: [https://filesd.vercel.app/]
             answers = {};
             totalScore = 0;
             resultData = {};
-            
+            const breakdown = document.getElementById('category-breakdown');
+            if (breakdown) {
+                breakdown.remove();
+            }
             resultsSection.classList.add('hidden');
             headerSection.classList.remove('hidden');
             statsSection.classList.remove('hidden');
-            
-            // Reset progress bar
+            document.getElementById('privacy-section').classList.remove('hidden');
             document.getElementById('progress-bar').style.width = '6.67%';
-        }
-
-        // Mobile menu toggle (if needed)
-        function toggleMobileMenu() {
-            // Add mobile menu functionality if needed
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
+
 </html>

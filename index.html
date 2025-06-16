@@ -472,7 +472,6 @@
         // Enhanced scoring system
         function calculateCategoryScores() {
             const categoryScores = {};
-
             Object.keys(questionCategories).forEach(category => {
                 const questionIndices = questionCategories[category];
                 const totalScore = questionIndices.reduce((sum, index) => {
@@ -484,7 +483,6 @@
                     percentage: (totalScore / maxScore) * 100
                 };
             });
-
             return categoryScores;
         }
 
@@ -502,11 +500,13 @@
         const startBtn = document.getElementById('start-btn');
         const retakeBtn = document.getElementById('retake-btn');
         const downloadBtn = document.getElementById('download-btn');
+        const prevBtn = document.getElementById('prev-btn');
 
         // Event Listeners
         startBtn.addEventListener('click', startQuiz);
         retakeBtn.addEventListener('click', resetQuiz);
         downloadBtn.addEventListener('click', downloadResults);
+        prevBtn.addEventListener('click', goToPreviousQuestion);
 
         function startQuiz() {
             headerSection.classList.add('hidden');
@@ -529,15 +529,19 @@
             question.options.forEach((option, index) => {
                 const optionElement = document.createElement('button');
                 optionElement.className = 'option-card w-full text-left p-6 rounded-xl cursor-pointer';
+                const isSelected = answers[currentQuestion] === option.score;
                 optionElement.innerHTML = `
                     <div class="flex items-center">
-                        <div class="w-4 h-4 border-2 border-gray-600 rounded-full mr-4"></div>
+                        <div class="w-4 h-4 border-2 ${isSelected ? 'border-orange-500' : 'border-gray-600'} rounded-full mr-4 relative">
+                            ${isSelected ? '<div class="absolute inset-0 bg-orange-500 rounded-full m-1"></div>' : ''}
+                        </div>
                         <span class="text-white">${option.text}</span>
                     </div>
                 `;
                 optionElement.addEventListener('click', () => selectAnswer(option.score));
                 optionsContainer.appendChild(optionElement);
             });
+            prevBtn.disabled = (currentQuestion === 0);
             document.getElementById('question-card').classList.remove('fade-in');
             setTimeout(() => {
                 document.getElementById('question-card').classList.add('fade-in');
@@ -551,6 +555,13 @@
                 setTimeout(loadQuestion, 300);
             } else {
                 calculateAndShowResults();
+            }
+        }
+
+        function goToPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
             }
         }
 
@@ -656,14 +667,12 @@
             const margin = 20;
             const maxWidth = pageWidth - 2 * margin;
 
-            // Add text with wrapping and page break handling
             function addText(text, x, y, options = {}) {
                 const fontSize = options.fontSize || 12;
                 doc.setFontSize(fontSize);
                 doc.setFont("helvetica", options.fontStyle || "normal");
                 const lines = doc.splitTextToSize(text, maxWidth);
                 let lineY = y;
-
                 lines.forEach((line, index) => {
                     if (lineY + 10 > pageHeight - margin) {
                         doc.addPage();
@@ -672,27 +681,19 @@
                     doc.text(line, x, lineY, { align: options.align || "left" });
                     lineY += 7;
                 });
-
                 return lineY;
             }
 
-            // Header
             yPosition = addText("Mental Health Assessment Results", pageWidth / 2, yPosition, { fontSize: 16, align: "center" });
             yPosition = addText("SAMHIT", pageWidth / 2, yPosition, { align: "center" });
             yPosition += 10;
-
-            // Date
             const currentDate = new Date().toLocaleString();
             yPosition = addText(`Date: ${currentDate}`, margin, yPosition);
             yPosition += 10;
-
-            // Result Summary
             yPosition = addText("Result Summary", margin, yPosition, { fontSize: 14, fontStyle: "bold" });
             yPosition = addText(`Level: ${resultData.level}`, margin, yPosition);
             yPosition = addText(`Score: ${totalScore}/45 (${((totalScore / 45) * 100).toFixed(1)}%)`, margin, yPosition);
             yPosition += 10;
-
-            // Category Breakdown
             const categoryScores = calculateCategoryScores();
             yPosition = addText("Category Breakdown", margin, yPosition, { fontSize: 14, fontStyle: "bold" });
             Object.entries(categoryScores).forEach(([category, data]) => {
@@ -700,26 +701,18 @@
                 yPosition = addText(`${categoryName}: ${data.percentage.toFixed(0)}%`, margin, yPosition);
             });
             yPosition += 10;
-
-            // Message
             yPosition = addText("Interpretation", margin, yPosition, { fontSize: 14, fontStyle: "bold" });
             yPosition = addText(resultData.message, margin, yPosition);
             yPosition += 10;
-
-            // Recommendation
             yPosition = addText("Recommendations", margin, yPosition, { fontSize: 14, fontStyle: "bold" });
             yPosition = addText(resultData.recommendation, margin, yPosition);
             yPosition += 10;
-
-            // Footer with page numbers
             const pageCount = doc.internal.getNumberOfPages();
             for (let i = 1; i <= pageCount; i++) {
                 doc.setPage(i);
                 doc.setFontSize(10);
                 doc.text(`Page ${i} of ${pageCount}`, pageWidth / 2, pageHeight - 10, { align: "center" });
             }
-
-            // Save PDF
             doc.save(`Assessment_Results_${new Date().toISOString().split('T')[0]}.pdf`);
         }
 

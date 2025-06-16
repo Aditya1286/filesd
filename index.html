@@ -101,22 +101,20 @@
 </head>
 
 <body class="bg-black text-white">
-
     <!-- Navigation -->
     <nav class="bg-black/90 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold gradient-text">SAMहित</h1>
+                    <h1 class="text-xl sm:text-2xl font-bold gradient-text">SAMहित</h1>
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-4 md:space-x-8">
                     <a href="#" class="text-white hover:text-orange-400 transition-colors">Overview</a>
                     <a href="#" class="text-white hover:text-orange-400 transition-colors">Features</a>
                     <a href="#" class="text-white hover:text-orange-400 transition-colors">Insights</a>
                     <a href="#" class="text-white hover:text-orange-400 transition-colors">Contact</a>
                 </div>
-                <button
-                    class="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">
+                <button class="bg-white text-black px-4 py-2 md:px-6 md:py-2 rounded-full font-medium hover:bg-gray-100 transition-colors">
                     Get Started
                 </button>
             </div>
@@ -124,67 +122,65 @@
     </nav>
 
     <!-- Assessment Container -->
-    <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div class="min-h-screen py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
-
             <!-- Header Section -->
-            <div id="header-section" class="text-center mb-16 fade-in">
-                <h1 class="text-5xl md:text-7xl font-black mb-6">
+            <div id="header-section" class="text-center mb-12 sm:mb-16 fade-in">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-black mb-6">
                     Mental Health
                     <span class="gradient-text block">Assessment</span>
                 </h1>
-                <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+                <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
                     Early detection systems are proof that there's power in understanding minds before they break.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <button id="start-btn" class="btn-orange px-8 py-4 rounded-full text-white font-semibold text-lg">
+                    <button id="start-btn" class="btn-orange w-full sm:w-auto px-8 py-4 rounded-full text-white font-semibold text-lg">
                         Start Assessment
                     </button>
-                    <button id="learn-more-btn" class="text-white hover:text-orange-400 transition-colors flex items-center">
+                    <button id="learn-more-btn" class="w-full sm:w-auto text-white hover:text-orange-400 transition-colors flex items-center justify-center">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Stats Section -->
-            <div id="stats-section" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div id="stats-section" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
                 <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-black gradient-text mb-2">95%</div>
-                    <div class="text-gray-400">Detection Rate</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black gradient-text mb-2">95%</div>
+                    <div class="text-gray-400 text-sm sm:text-base">Detection Rate</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-black gradient-text mb-2">50K+</div>
-                    <div class="text-gray-400">People Helped</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black gradient-text mb-2">50K+</div>
+                    <div class="text-gray-400 text-sm sm:text-base">People Helped</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl md:text-5xl font-black gradient-text mb-2">24/7</div>
-                    <div class="text-gray-400">AI Monitoring</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-black gradient-text mb-2">24/7</div>
+                    <div class="text-gray-400 text-sm sm:text-base">AI Monitoring</div>
                 </div>
             </div>
 
             <!-- Privacy & Security Notice -->
-            <div id="privacy-section" class="bg-gray-900/50 border border-gray-700 rounded-2xl p-8 mb-16">
+            <div id="privacy-section" class="bg-gray-900/50 border border-gray-700 rounded-2xl p-6 sm:p-8 mb-12 sm:mb-16">
                 <div class="text-center mb-6">
-                    <i class="fas fa-shield-alt text-4xl text-green-400 mb-4"></i>
-                    <h3 class="text-2xl font-bold text-white mb-2">Your Privacy is Protected</h3>
-                    <p class="text-gray-400">We use advanced encryption and privacy measures to keep your data secure
-                    </p>
+                    <i class="fas fa-shield-alt text-3xl sm:text-4xl text-green-400 mb-4"></i>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Your Privacy is Protected</h3>
+                    <p class="text-sm sm:text-base text-gray-400">We use advanced encryption and privacy measures to keep your data secure</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                     <div class="text-center">
-                        <i class="fas fa-lock text-2xl text-green-400 mb-3"></i>
-                        <h4 class="font-semibold text-white mb-2">End-to-End Encryption</h4>
-                        <p class="text-sm text-gray-400">All responses are encrypted and never stored on our servers</p>
+                        <i class="fas fa-lock text-xl sm:text-2xl text-green-400 mb-3"></i>
+                        <h4 class="font-semibold text-white mb-2 text-sm sm:text-base">End-to-End Encryption</h4>
+                        <p class="text-xs sm:text-sm text-gray-400">All responses are encrypted and never stored on our servers</p>
                     </div>
                     <div class="text-center">
-                        <i class="fas fa-user-secret text-2xl text-green-400 mb-3"></i>
-                        <h4 class="font-semibold text-white mb-2">Anonymous Assessment</h4>
-                        <p class="text-sm text-gray-400">No personal information required to complete the assessment</p>
+                        <i class="fas fa-user-secret text-xl sm:text-2xl text-green-400 mb-3"></i>
+                        <h4 class="font-semibold text-white mb-2 text-sm sm:text-base">Anonymous Assessment</h4>
+                        <p class="text-xs sm:text-sm text-gray-400">No personal information required to complete the assessment</p>
                     </div>
                     <div class="text-center">
-                        <i class="fas fa-trash-alt text-2xl text-green-400 mb-3"></i>
-                        <h4 class="font-semibold text-white mb-2">Auto-Delete</h4>
-                        <p class="text-sm text-gray-400">Session data is automatically cleared after completion</p>
+                        <i class="fas fa-trash-alt text-xl sm:text-2xl text-green-400 mb-3"></i>
+                        <h4 class="font-semibold text-white mb-2 text-sm sm:text-base">Auto-Delete</h4>
+                        <p class="text-xs sm:text-sm text-gray-400">Session data is automatically cleared after completion</p>
                     </div>
                 </div>
             </div>
@@ -192,10 +188,10 @@
             <!-- Quiz Container -->
             <div id="quiz-container" class="hidden">
                 <!-- Progress Bar -->
-                <div class="mb-8">
+                <div class="mb-6 sm:mb-8">
                     <div class="flex justify-between items-center mb-3">
-                        <span class="text-sm text-gray-400">Progress</span>
-                        <span id="progress-text" class="text-sm text-gray-400">1 of 15</span>
+                        <span class="text-xs sm:text-sm text-gray-400">Progress</span>
+                        <span id="progress-text" class="text-xs sm:text-sm text-gray-400">1 of 15</span>
                     </div>
                     <div class="w-full bg-gray-800 rounded-full h-2">
                         <div id="progress-bar" class="progress-bar h-2 rounded-full" style="width: 6.67%"></div>
@@ -203,18 +199,17 @@
                 </div>
 
                 <!-- Question Card -->
-                <div id="question-card" class="card-hover bg-gray-900 rounded-2xl p-8 mb-8 fade-in">
-                    <h2 id="question-text" class="text-2xl font-semibold mb-8 text-white"></h2>
-                    <div id="options-container" class="space-y-4"></div>
+                <div id="question-card" class="card-hover bg-gray-900 rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8 fade-in">
+                    <h2 id="question-text" class="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 text-white"></h2>
+                    <div id="options-container" class="space-y-4 sm:space-y-6"></div>
                 </div>
 
                 <!-- Navigation -->
-                <div class="flex justify-between items-center">
-                    <button id="prev-btn" class="text-gray-400 hover:text-white transition-colors disabled:opacity-50"
-                        disabled>
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <button id="prev-btn" class="text-gray-400 hover:text-white transition-colors disabled:opacity-50" disabled>
                         <i class="fas fa-arrow-left mr-2"></i> Previous
                     </button>
-                    <div class="text-sm text-gray-500">
+                    <div class="text-xs sm:text-sm text-gray-500 text-center">
                         <i class="fas fa-shield-alt mr-2"></i>
                         Your responses are completely confidential
                     </div>
@@ -223,53 +218,47 @@
 
             <!-- Results Section -->
             <div id="results-section" class="hidden">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl md:text-5xl font-black mb-4">Assessment Results</h2>
-                    <p class="text-xl text-gray-400">Your mental health screening analysis</p>
+                <div class="text-center mb-8 sm:mb-12">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4">Assessment Results</h2>
+                    <p class="text-lg sm:text-xl text-gray-400">Your mental health screening analysis</p>
                 </div>
 
-                <div id="result-card" class="result-card rounded-2xl p-8 mb-8">
+                <div id="result-card" class="result-card rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8">
                     <div class="flex items-center mb-6">
-                        <div id="result-icon" class="text-4xl mr-4"></div>
+                        <div id="result-icon" class="text-3xl sm:text-4xl mr-4"></div>
                         <div>
-                            <h3 id="result-level" class="text-3xl font-bold mb-2"></h3>
-                            <p id="result-score" class="text-gray-400"></p>
+                            <h3 id="result-level" class="text-2xl sm:text-3xl font-bold mb-2"></h3>
+                            <p id="result-score" class="text-sm sm:text-base text-gray-400"></p>
                         </div>
                     </div>
-
-                    <p id="result-message" class="text-lg mb-6 text-gray-300"></p>
-
-                    <div class="bg-black/50 rounded-xl p-6 mb-6">
-                        <h4 class="font-semibold text-white mb-3">
+                    <p id="result-message" class="text-base sm:text-lg mb-6 text-gray-300"></p>
+                    <div class="bg-black/50 rounded-xl p-4 sm:p-6 mb-6">
+                        <h4 class="font-semibold text-white mb-3 text-sm sm:text-base">
                             <i class="fas fa-lightbulb mr-2 text-orange-400"></i>
                             Recommendations:
                         </h4>
-                        <p id="result-recommendation" class="text-gray-300"></p>
+                        <p id="result-recommendation" class="text-gray-300 text-sm sm:text-base"></p>
                     </div>
                 </div>
 
                 <!-- Important Notice -->
-                <div class="bg-blue-900/30 border border-blue-700/50 rounded-xl p-6 mb-8">
-                    <h4 class="font-semibold text-blue-300 mb-3">
+                <div class="bg-blue-900/30 border border-blue-700/50 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+                    <h4 class="font-semibold text-blue-300 mb-3 text-sm sm:text-base">
                         <i class="fas fa-info-circle mr-2"></i>
                         Important Notice:
                     </h4>
-                    <p class="text-blue-200 text-sm">
-                        This assessment is for informational purposes only and is not a substitute for professional
-                        medical advice,
-                        diagnosis, or treatment. If you're experiencing thoughts of self-harm or suicide, please contact
-                        a crisis
-                        helpline or emergency services immediately.
+                    <p class="text-blue-200 text-xs sm:text-sm">
+                        This assessment is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. If you're experiencing thoughts of self-harm or suicide, please contact a crisis helpline or emergency services immediately.
                     </p>
                 </div>
 
                 <!-- Resources -->
-                <div class="bg-gray-900 rounded-xl p-6 mb-8">
-                    <h4 class="font-semibold text-white mb-4">
+                <div class="bg-gray-900 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8">
+                    <h4 class="font-semibold text-white mb-4 text-sm sm:text-base">
                         <i class="fas fa-hands-helping mr-2 text-orange-400"></i>
                         Crisis Resources:
                     </h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
                         <div class="text-gray-300">
                             <strong>National Suicide Prevention Lifeline:</strong><br>
                             <a href="tel:988" class="text-orange-400 hover:text-orange-300">988</a>
@@ -280,25 +269,23 @@
                         </div>
                         <div class="text-gray-300">
                             <strong>NAMI Helpline:</strong><br>
-                            <a href="tel:1-800-950-6264" class="text-orange-400 hover:text-orange-300">1-800-950-NAMI
-                                (6264)</a>
+                            <a href="tel:1-800-950-6264" class="text-orange-400 hover:text-orange-300">1-800-950-NAMI (6264)</a>
                         </div>
                         <div class="text-gray-300">
                             <strong>Mental Health America:</strong><br>
-                            <a href="https://mhanational.org"
-                                class="text-orange-400 hover:text-orange-300">mhanational.org</a>
+                            <a href="https://mhanational.org" class="text-orange-400 hover:text-orange-300">mhanational.org</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Action Buttons -->
                 <div class="text-center space-y-4">
-                    <button id="retake-btn" class="btn-orange px-8 py-4 rounded-full text-white font-semibold">
+                    <button id="retake-btn" class="btn-orange w-full sm:w-auto px-8 py-4 rounded-full text-white font-semibold text-base sm:text-lg">
                         <i class="fas fa-redo mr-2"></i>
                         Take Assessment Again
                     </button>
                     <div>
-                        <button id="download-btn" class="text-gray-400 hover:text-white transition-colors">
+                        <button id="download-btn" class="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
                             <i class="fas fa-download mr-2"></i>
                             Download Results
                         </button>
@@ -310,40 +297,40 @@
 
     <!-- Learn More Modal -->
     <div id="learn-more-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden">
-        <div class="bg-gray-900 rounded-2xl p-8 max-w-2xl w-full mx-4">
+        <div class="bg-gray-900 rounded-2xl p-4 sm:p-8 max-w-full sm:max-w-2xl w-full mx-4 overflow-y-auto max-h-[90vh]">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-bold text-white">About the Assessment</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">About the Assessment</h2>
                 <button id="close-modal" class="text-gray-400 hover:text-white">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="space-y-6 text-gray-300">
-                <p>
+                <p class="text-sm sm:text-base">
                     The Mental Health Assessment by SAMहित is a scientifically designed tool to help individuals understand their current mental health status. It evaluates symptoms related to depression, anxiety, cognitive function, and social behavior.
                 </p>
-                <h3 class="text-xl font-semibold text-white">Key Features:</h3>
-                <ul class="list-disc list-inside space-y-2">
+                <h3 class="text-lg sm:text-xl font-semibold text-white">Key Features:</h3>
+                <ul class="list-disc list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>Based on clinically validated questionnaires</li>
                     <li>Anonymous and confidential</li>
                     <li>Provides immediate results and recommendations</li>
                     <li>Helps in early detection of potential mental health issues</li>
                 </ul>
-                <h3 class="text-xl font-semibold text-white">How It Works:</h3>
-                <ol class="list-decimal list-inside space-y-2">
+                <h3 class="text-lg sm:text-xl font-semibold text-white">How It Works:</h3>
+                <ol class="list-decimal list-inside space-y-1 sm:space-y-2 text-sm sm:text-base">
                     <li>Answer 15 carefully selected questions</li>
                     <li>Receive an immediate analysis of your responses</li>
                     <li>Get personalized recommendations based on your score</li>
                     <li>Access resources for further support if needed</li>
                 </ol>
-                <p>
+                <p class="text-sm sm:text-base">
                     Remember, this assessment is not a diagnostic tool but a screening instrument. It's designed to provide insights and guide you towards appropriate resources or professional help if necessary.
                 </p>
                 <div class="bg-blue-900/30 border border-blue-700/50 rounded-xl p-4">
-                    <h4 class="font-semibold text-blue-300 mb-2">
+                    <h4 class="font-semibold text-blue-300 mb-2 text-sm sm:text-base">
                         <i class="fas fa-info-circle mr-2"></i>
                         Privacy Note:
                     </h4>
-                    <p class="text-blue-200 text-sm">
+                    <p class="text-blue-200 text-xs sm:text-sm">
                         Your responses are processed locally in your browser and are not stored or transmitted to any server. We prioritize your privacy and confidentiality.
                     </p>
                 </div>
@@ -586,14 +573,14 @@
             optionsContainer.innerHTML = '';
             question.options.forEach((option, index) => {
                 const optionElement = document.createElement('button');
-                optionElement.className = 'option-card w-full text-left p-6 rounded-xl cursor-pointer';
+                optionElement.className = 'option-card w-full text-left p-4 sm:p-6 rounded-xl cursor-pointer';
                 const isSelected = answers[currentQuestion] === option.score;
                 optionElement.innerHTML = `
                     <div class="flex items-center">
                         <div class="w-4 h-4 border-2 ${isSelected ? 'border-orange-500' : 'border-gray-600'} rounded-full mr-4 relative">
                             ${isSelected ? '<div class="absolute inset-0 bg-orange-500 rounded-full m-1"></div>' : ''}
                         </div>
-                        <span class="text-white">${option.text}</span>
+                        <span class="text-white text-sm sm:text-base">${option.text}</span>
                     </div>
                 `;
                 optionElement.addEventListener('click', () => selectAnswer(option.score));
@@ -670,7 +657,7 @@
                     color: "red"
                 };
             }
-            resultCard.className = `result-card rounded-2xl p-8 mb-8 ${resultData.className}`;
+            resultCard.className = `result-card rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8 ${resultData.className}`;
             document.getElementById('result-icon').className = resultData.icon;
             document.getElementById('result-level').textContent = resultData.level;
             document.getElementById('result-score').textContent = `Total Score: ${totalScore}/45 (${((totalScore / 45) * 100).toFixed(1)}%)`;
@@ -686,12 +673,12 @@
             if (!breakdownSection) {
                 breakdownSection = document.createElement('div');
                 breakdownSection.id = 'category-breakdown';
-                breakdownSection.className = 'bg-black/30 rounded-xl p-6 mb-6';
+                breakdownSection.className = 'bg-black/30 rounded-xl p-4 sm:p-6 mb-6';
                 const resultCard = document.getElementById('result-card');
                 resultCard.parentNode.insertBefore(breakdownSection, resultCard.nextSibling);
             }
             breakdownSection.innerHTML = `
-                <h4 class="font-semibold text-white mb-4">
+                <h4 class="font-semibold text-white mb-4 text-sm sm:text-base">
                     <i class="fas fa-chart-bar mr-2 text-orange-400"></i>
                     Detailed Breakdown:
                 </h4>
@@ -702,8 +689,8 @@
                         return `
                             <div class="bg-gray-800/50 rounded-lg p-4">
                                 <div class="flex justify-between items-center mb-2">
-                                    <span class="text-gray-300 font-medium">${categoryName}</span>
-                                    <span class="${colorClass} font-bold">${data.percentage.toFixed(0)}%</span>
+                                    <span class="text-gray-300 font-medium text-sm sm:text-base">${categoryName}</span>
+                                    <span class="${colorClass} font-bold text-sm sm:text-base">${data.percentage.toFixed(0)}%</span>
                                 </div>
                                 <div class="w-full bg-gray-700 rounded-full h-2">
                                     <div class="bg-gradient-to-r from-orange-500 to-orange-400 h-2 rounded-full transition-all duration-500" 

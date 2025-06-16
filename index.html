@@ -140,9 +140,9 @@
                     <button id="start-btn" class="btn-orange px-8 py-4 rounded-full text-white font-semibold text-lg">
                         Start Assessment
                     </button>
-                    <a href="#" class="text-white hover:text-orange-400 transition-colors flex items-center">
+                    <button id="learn-more-btn" class="text-white hover:text-orange-400 transition-colors flex items-center">
                         Learn More <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -161,6 +161,7 @@
                     <div class="text-gray-400">AI Monitoring</div>
                 </div>
             </div>
+
             <!-- Privacy & Security Notice -->
             <div id="privacy-section" class="bg-gray-900/50 border border-gray-700 rounded-2xl p-8 mb-16">
                 <div class="text-center mb-6">
@@ -187,6 +188,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Quiz Container -->
             <div id="quiz-container" class="hidden">
                 <!-- Progress Bar -->
@@ -301,6 +303,49 @@
                             Download Results
                         </button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learn More Modal -->
+    <div id="learn-more-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl p-8 max-w-2xl w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-white">About the Assessment</h2>
+                <button id="close-modal" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="space-y-6 text-gray-300">
+                <p>
+                    The Mental Health Assessment by SAMहित is a scientifically designed tool to help individuals understand their current mental health status. It evaluates symptoms related to depression, anxiety, cognitive function, and social behavior.
+                </p>
+                <h3 class="text-xl font-semibold text-white">Key Features:</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Based on clinically validated questionnaires</li>
+                    <li>Anonymous and confidential</li>
+                    <li>Provides immediate results and recommendations</li>
+                    <li>Helps in early detection of potential mental health issues</li>
+                </ul>
+                <h3 class="text-xl font-semibold text-white">How It Works:</h3>
+                <ol class="list-decimal list-inside space-y-2">
+                    <li>Answer 15 carefully selected questions</li>
+                    <li>Receive an immediate analysis of your responses</li>
+                    <li>Get personalized recommendations based on your score</li>
+                    <li>Access resources for further support if needed</li>
+                </ol>
+                <p>
+                    Remember, this assessment is not a diagnostic tool but a screening instrument. It's designed to provide insights and guide you towards appropriate resources or professional help if necessary.
+                </p>
+                <div class="bg-blue-900/30 border border-blue-700/50 rounded-xl p-4">
+                    <h4 class="font-semibold text-blue-300 mb-2">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Privacy Note:
+                    </h4>
+                    <p class="text-blue-200 text-sm">
+                        Your responses are processed locally in your browser and are not stored or transmitted to any server. We prioritize your privacy and confidentiality.
+                    </p>
                 </div>
             </div>
         </div>
@@ -498,15 +543,28 @@
         const quizContainer = document.getElementById('quiz-container');
         const resultsSection = document.getElementById('results-section');
         const startBtn = document.getElementById('start-btn');
+        const learnMoreBtn = document.getElementById('learn-more-btn');
+        const closeModalBtn = document.getElementById('close-modal');
+        const modal = document.getElementById('learn-more-modal');
         const retakeBtn = document.getElementById('retake-btn');
         const downloadBtn = document.getElementById('download-btn');
         const prevBtn = document.getElementById('prev-btn');
 
         // Event Listeners
         startBtn.addEventListener('click', startQuiz);
+        learnMoreBtn.addEventListener('click', showModal);
+        closeModalBtn.addEventListener('click', hideModal);
         retakeBtn.addEventListener('click', resetQuiz);
         downloadBtn.addEventListener('click', downloadResults);
         prevBtn.addEventListener('click', goToPreviousQuestion);
+
+        function showModal() {
+            modal.classList.remove('hidden');
+        }
+
+        function hideModal() {
+            modal.classList.add('hidden');
+        }
 
         function startQuiz() {
             headerSection.classList.add('hidden');
